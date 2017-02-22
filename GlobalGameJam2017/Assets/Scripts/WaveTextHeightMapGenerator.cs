@@ -19,7 +19,7 @@ public class WaveTextHeightMapGenerator : MonoBehaviour
     {
         textWaveBehaviorList = new List<TextWaveBehavior>();
         //For testing let's make a wave here
-        GenerateTextWaveGameObject("123456", 36, 56f, 3f);
+        //GenerateTextWaveGameObject("123456", 36, 56f, 3f);
     }
 
     // Update is called once per frame

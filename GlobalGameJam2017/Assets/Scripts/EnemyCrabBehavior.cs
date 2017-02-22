@@ -6,6 +6,7 @@ public class EnemyCrabBehavior : MonoBehaviour, IDamagable
 {
     public GameObject crabGhost;
     public float crabSpeed = 10.0f;
+    public float crabDamage = 1f;
     public Rigidbody rigidbody;
     private float health;
 
@@ -20,7 +21,6 @@ public class EnemyCrabBehavior : MonoBehaviour, IDamagable
     {
         if (health <= 0)
             Kill();
-
         Vector3 crabMovementForce = Vector3.forward * crabSpeed * Time.deltaTime;
         rigidbody.AddRelativeForce(crabMovementForce);
     }
@@ -30,6 +30,20 @@ public class EnemyCrabBehavior : MonoBehaviour, IDamagable
         if (col.gameObject.name.Contains("Buoy"))
         {
             this.Kill();
+        }
+        if (col.gameObject.name.Contains("EnemyDamageZone"))
+        {
+            Debug.Log("We Collided with Damage Zone");//Debug, get rid of this
+            ((CastleController)col.gameObject.GetComponent("CastleController")).takeDamage(crabDamage);
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.name.Contains("EnemyDamageZone"))
+        {
+            Debug.Log("We Collided with Damage Zone");//Debug, get rid of this
+            ((CastleController)other.gameObject.GetComponent("CastleController")).takeDamage(crabDamage);
         }
     }
 
