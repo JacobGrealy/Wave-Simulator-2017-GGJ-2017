@@ -10,7 +10,7 @@ public class CannonController : MonoBehaviour
     public AudioSource cannonAudioSource;
     public ParticleSystem dustEmitter;
     public GameObject cannonBallDummy;
-    private GameObject loadedCannonBall;
+    public GameObject loadedCannonBall;
 
     Vector3 cannonBaseInitialRot;
     Vector3 cannonBarrelInitialRot;
@@ -23,7 +23,8 @@ public class CannonController : MonoBehaviour
     float barrelRotationMin = 0f;
 
     //Charging variables
-    float chargePercent =0f;
+    private float chargePercent =0f;
+    public float getChargePercent(){return chargePercent;}
     public float chargeRate = .6f;
     public float coolDownRate = 1f;
     float preCoolDownPercent = 1f;
@@ -54,19 +55,19 @@ public class CannonController : MonoBehaviour
 
         //Rotate towards mouse
         if (cannonState != CannonState.FIRING)
-            RotateTowardsMouse();
+            RotateTowardsMouse(true);
 
     }
 
-    private void RotateTowardsMouse()
+    public Vector3 getMouseWorldPosition()
     {
-         // speed is the rate at which the object will rotate
-         float speed = 5f;
-        // Generate a plane that intersects the transform's position with an upwards normal.
-        Plane cannonPlane = new Plane(Vector3.up, cannonParent.transform.position);
+        Vector3 targetPoint = Vector3.zero;
 
         // Generate a ray from the cursor position
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        // Generate a plane that intersects the transform's position with an upwards normal.
+        Plane cannonPlane = new Plane(Vector3.up, cannonParent.transform.position);
 
         // Determine the point where the cursor ray intersects the plane.
         // This will be the point that the object must look towards to be looking at the mouse.
@@ -78,11 +79,26 @@ public class CannonController : MonoBehaviour
         if (cannonPlane.Raycast(ray, out hitdist))
         {
             // Get the point along the ray that hits the calculated distance.
-            Vector3 targetPoint = ray.GetPoint(hitdist);
+            targetPoint = ray.GetPoint(hitdist);
+        }
+        return targetPoint;
+    }
 
-            // Determine the target rotation.  This is the rotation if the transform looks at the target point.
-            Quaternion targetRotation = Quaternion.LookRotation(targetPoint - cannonParent.transform.position);
+    private void RotateTowardsMouse(bool instant)
+    {
+        // speed is the rate at which the object will rotate
+        float speed = 5f;
 
+        Vector3 targetPoint = getMouseWorldPosition();
+
+        // Determine the target rotation.  This is the rotation if the transform looks at the target point.
+        Quaternion targetRotation = Quaternion.LookRotation(targetPoint - cannonParent.transform.position);
+        if (instant)
+        {
+            cannonParent.transform.rotation = targetRotation;
+        }
+        else
+        {
             // Smoothly rotate towards the target point.
             cannonParent.transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, speed * Time.deltaTime);
         }
@@ -152,10 +168,15 @@ public class CannonController : MonoBehaviour
             cannonState = CannonState.WAITING;
         }
     }
+    
+    public float getXRotation()
+    {
+        return Mathf.Lerp(barrelRotationMin, barrelRotationMax, (chargePercent));
+    }
 
     public void setBarrelRotationFromRatio(float ratio)
     {
-        float xRot = Mathf.Lerp(barrelRotationMin, barrelRotationMax, (ratio));
+        float xRot = getXRotation();
         cannonBarrel.transform.localEulerAngles = new Vector3(xRot, cannonBarrel.transform.localEulerAngles.y, cannonBarrel.transform.localEulerAngles.z);
     }
 

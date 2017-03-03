@@ -8,11 +8,20 @@ public class CannonBallBehavior : MonoBehaviour
     public ParticleSystem explosionParticleSystem;
     public WaveController waveController;
     public SplashWaveGeneratorBehavior splashWaveGeneratorBehavior;
+    public GameObject physicsObjects;
+    public float baseExplosiveForce;
+    public float explosionRadius;
+
     public Rigidbody myRigidbody;
     public float minFireForce = 1f;
     public float maxFireForce = 10f;
     public float gravityScalar = 2f;
     private bool physicsEnabled;
+
+    public Vector3 calculateFireForce(float fireForceRatio)
+    {
+        return Vector3.forward * Mathf.Lerp(minFireForce, maxFireForce, fireForceRatio);
+    }
 
     public void Fire(float fireForceRatio)
     {
@@ -22,12 +31,13 @@ public class CannonBallBehavior : MonoBehaviour
         //Enable Trail
         trailParticleSystem.Play();
         //Apply Explosive Force
-        myRigidbody.AddRelativeForce(Vector3.forward * Mathf.Lerp(minFireForce, maxFireForce, fireForceRatio));
+        myRigidbody.AddRelativeForce(calculateFireForce(fireForceRatio));
     }
 
     //Use this for initialization
     void Start ()
     {
+        //We don't want it doing anything until it's fired
         setPhysicsEnabled(false);
         
         //@todo Set A Death timer
@@ -60,9 +70,10 @@ public class CannonBallBehavior : MonoBehaviour
             if (damagable != null)
             {
                 damagable.DoDamage(1f);
-                startExplosion();
-                this.kill();
             }
+            startExplosion();
+            applyExplosiveForce(.5f);
+            this.kill();
         }
     }
 
@@ -77,11 +88,22 @@ public class CannonBallBehavior : MonoBehaviour
     {
         splashWaveGeneratorBehavior.gameObject.transform.SetParent(null);
         splashWaveGeneratorBehavior.gameObject.SetActive(true);
-        splashWaveGeneratorBehavior.setForce(myRigidbody.velocity.sqrMagnitude*myRigidbody.mass);
+        splashWaveGeneratorBehavior.setForce(10*Mathf.Sqrt(myRigidbody.velocity.sqrMagnitude*myRigidbody.mass));
         waveController.AddSplashWaveGenerator(splashWaveGeneratorBehavior);
-        //@todo Mist particles?
-        //------------
+        //Explosive Force, instant explosion force to objects in the area
+        applyExplosiveForce(1f);
+        //@TODO Mist particles?
         this.kill();
+    }
+
+    public void applyExplosiveForce(float explosionScalar)
+    {
+        Component[] ridgidBodyArray = physicsObjects.GetComponentsInChildren(typeof(Rigidbody));
+        foreach (Component component in ridgidBodyArray)
+        {
+            Rigidbody otherRidgidBody = (Rigidbody)component;
+            otherRidgidBody.AddExplosionForce(baseExplosiveForce * explosionScalar * myRigidbody.velocity.sqrMagnitude * myRigidbody.mass, this.transform.position, explosionRadius);
+        }
     }
 
     public void startExplosion()

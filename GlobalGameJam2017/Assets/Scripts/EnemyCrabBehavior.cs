@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyCrabBehavior : MonoBehaviour, IDamagable
+public class EnemyCrabBehavior : MonoBehaviour//, IDamagable
 {
     public GameObject crabGhost;
     public float crabSpeed = 10.0f;
