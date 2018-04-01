@@ -1,0 +1,142 @@
+﻿{"frames": [
+
+{
+   "filename": "Frame 1",
+   "frame": {"x":0, "y":0,"w":13.3194444444444 in, "h":12.3472222222222 in},
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {"x":0,"y":0,"w":13.3194444444444 in, "h":12.3472222222222 in},
+   "sourceSize": {"w":13.3194444444444 in,"h":12.3472222222222 in}
+}
+,{
+   "filename": "Frame 2",
+   "frame": {"x":13.3194444444444, "y":0,"w":13.3194444444444 in, "h":12.3472222222222 in},
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {"x":0,"y":0,"w":13.3194444444444 in, "h":12.3472222222222 in},
+   "sourceSize": {"w":13.3194444444444 in,"h":12.3472222222222 in}
+}
+,{
+   "filename": "Frame 3",
+   "frame": {"x":26.6388888888888, "y":0,"w":13.3194444444444 in, "h":12.3472222222222 in},
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {"x":0,"y":0,"w":13.3194444444444 in, "h":12.3472222222222 in},
+   "sourceSize": {"w":13.3194444444444 in,"h":12.3472222222222 in}
+}
+,{
+   "filename": "Frame 4",
+   "frame": {"x":39.9583333333332, "y":0,"w":13.3194444444444 in, "h":12.3472222222222 in},
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {"x":0,"y":0,"w":13.3194444444444 in, "h":12.3472222222222 in},
+   "sourceSize": {"w":13.3194444444444 in,"h":12.3472222222222 in}
+}
+,{
+   "filename": "Frame 5",
+   "frame": {"x":0, "y":12.3472222222222,"w":13.3194444444444 in, "h":12.3472222222222 in},
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {"x":0,"y":0,"w":13.3194444444444 in, "h":12.3472222222222 in},
+   "sourceSize": {"w":13.3194444444444 in,"h":12.3472222222222 in}
+}
+,{
+   "filename": "Frame 6",
+   "frame": {"x":13.3194444444444, "y":12.3472222222222,"w":13.3194444444444 in, "h":12.3472222222222 in},
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {"x":0,"y":0,"w":13.3194444444444 in, "h":12.3472222222222 in},
+   "sourceSize": {"w":13.3194444444444 in,"h":12.3472222222222 in}
+}
+,{
+   "filename": "Frame 7",
+   "frame": {"x":26.6388888888888, "y":12.3472222222222,"w":13.3194444444444 in, "h":12.3472222222222 in},
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {"x":0,"y":0,"w":13.3194444444444 in, "h":12.3472222222222 in},
+   "sourceSize": {"w":13.3194444444444 in,"h":12.3472222222222 in}
+}
+,{
+   "filename": "Frame 8",
+   "frame": {"x":39.9583333333332, "y":12.3472222222222,"w":13.3194444444444 in, "h":12.3472222222222 in},
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {"x":0,"y":0,"w":13.3194444444444 in, "h":12.3472222222222 in},
+   "sourceSize": {"w":13.3194444444444 in,"h":12.3472222222222 in}
+}
+,{
+   "filename": "Frame 9",
+   "frame": {"x":0, "y":24.6944444444444,"w":13.3194444444444 in, "h":12.3472222222222 in},
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {"x":0,"y":0,"w":13.3194444444444 in, "h":12.3472222222222 in},
+   "sourceSize": {"w":13.3194444444444 in,"h":12.3472222222222 in}
+}
+,{
+   "filename": "Frame 10",
+   "frame": {"x":13.3194444444444, "y":24.6944444444444,"w":13.3194444444444 in, "h":12.3472222222222 in},
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {"x":0,"y":0,"w":13.3194444444444 in, "h":12.3472222222222 in},
+   "sourceSize": {"w":13.3194444444444 in,"h":12.3472222222222 in}
+}
+,{
+   "filename": "Frame 11",
+   "frame": {"x":26.6388888888888, "y":24.6944444444444,"w":13.3194444444444 in, "h":12.3472222222222 in},
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {"x":0,"y":0,"w":13.3194444444444 in, "h":12.3472222222222 in},
+   "sourceSize": {"w":13.3194444444444 in,"h":12.3472222222222 in}
+}
+,{
+   "filename": "Frame 12",
+   "frame": {"x":39.9583333333332, "y":24.6944444444444,"w":13.3194444444444 in, "h":12.3472222222222 in},
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {"x":0,"y":0,"w":13.3194444444444 in, "h":12.3472222222222 in},
+   "sourceSize": {"w":13.3194444444444 in,"h":12.3472222222222 in}
+}
+,{
+   "filename": "Frame 13",
+   "frame": {"x":0, "y":37.0416666666666,"w":13.3194444444444 in, "h":12.3472222222222 in},
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {"x":0,"y":0,"w":13.3194444444444 in, "h":12.3472222222222 in},
+   "sourceSize": {"w":13.3194444444444 in,"h":12.3472222222222 in}
+}
+,{
+   "filename": "Frame 14",
+   "frame": {"x":13.3194444444444, "y":37.0416666666666,"w":13.3194444444444 in, "h":12.3472222222222 in},
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {"x":0,"y":0,"w":13.3194444444444 in, "h":12.3472222222222 in},
+   "sourceSize": {"w":13.3194444444444 in,"h":12.3472222222222 in}
+}
+,{
+   "filename": "Frame 15",
+   "frame": {"x":26.6388888888888, "y":37.0416666666666,"w":13.3194444444444 in, "h":12.3472222222222 in},
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {"x":0,"y":0,"w":13.3194444444444 in, "h":12.3472222222222 in},
+   "sourceSize": {"w":13.3194444444444 in,"h":12.3472222222222 in}
+}
+,{
+   "filename": "Frame 16",
+   "frame": {"x":39.9583333333332, "y":37.0416666666666,"w":13.3194444444444 in, "h":12.3472222222222 in},
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {"x":0,"y":0,"w":13.3194444444444 in, "h":12.3472222222222 in},
+   "sourceSize": {"w":13.3194444444444 in,"h":12.3472222222222 in}
+}
+],
+"meta": {
+   "app": "Adobe Flash Professional",
+   "version": "14.0",
+   "Target": "Edge Animate",
+   "Target Version": "4.0",
+   "image": "CrabDeathAnimationForExport.png",
+   "format": "RGBA8888",
+   "size": {"w":3836 ,"h":3556 },
+   "scale": "1"
+}
+}
